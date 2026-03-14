@@ -14,8 +14,19 @@ Dataset information:
 - Test images: 360
 - Number of classes: 65
 
-Results:
-- Validation Accuracy: 36.5%
-- Test Accuracy: 31.2%
+
+Experiment Results
+
+Baseline Model:
+ResNet50
+Classes: 65
+Validation Accuracy: 36.5%
+Test Accuracy: 31.2%
+
+Improved Model:
+ResNet50 with class filtering and weighted loss
+Classes: 42
+Test Accuracy: 30.8%
+
 
 The model was trained using Python and PyTorch.
