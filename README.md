@@ -1,32 +1,77 @@
+Food Recognition Project
+
 This project is a simple food classification system using deep learning.
 
-We used the **UNIMIB2016 food dataset**, which contains tray images with different food items. Each food item is annotated and cropped before training.
+We used the UNIMIB2016 food dataset, which contains tray images from a university cafeteria. Each image includes different food items placed on a tray.
 
-The model used in this project is **ResNet50**, a convolutional neural network commonly used for image classification.
+Before training, the food regions are cropped using the provided annotations, resized, and then sent to the neural network model.
 
-Project pipeline:
+Project Pipeline
 
-Tray Image → Food Crop → ResNet50 Model → Food Prediction
+Tray Image → Food Crop → CNN Model → Food Prediction
 
-Dataset information:
-- Total images: 1027
-- Training images: 650
-- Test images: 360
-- Number of classes: 65
+Dataset Information
 
+Dataset: UNIMIB2016 Food Dataset
 
-Experiment Results
+Total images: 1027
 
-Baseline Model:
-ResNet50
-Classes: 65
-Validation Accuracy: 36.5%
-Test Accuracy: 31.2%
+Training images: 650
 
-Improved Model:
-ResNet50 with class filtering and weighted loss
-Classes: 42
-Test Accuracy: 30.8%
+Test images: 360
 
+Number of classes: 65 food types
 
-The model was trained using Python and PyTorch.
+Example classes include:
+
+pizza
+
+pasta
+
+pane
+
+carote
+
+mandarini
+
+Experiments
+
+We tested different deep learning models and training methods.
+
+Experiment 1 — ResNet50 (Baseline)
+
+We trained a ResNet50 model using the original dataset with 65 classes.
+
+Experiment 2 — ResNet50 (Filtered Dataset)
+
+Classes with very few samples were removed.
+The dataset was reduced from 65 classes to 42 classes to create a more balanced dataset.
+
+Experiment 3 — ResNet50 (Data Augmentation)
+
+We applied data augmentation techniques such as rotation and color changes during training to improve generalization.
+
+Experiment 4 — VGG16
+
+We trained a VGG16 model using the same dataset to compare another CNN architecture.
+
+Results
+Experiment	Model	Method	Test Accuracy
+Experiment 1	ResNet50	Baseline	31.2%
+Experiment 2	ResNet50	Filtered dataset	30.8%
+Experiment 3	ResNet50	Data augmentation	25.8%
+Experiment 4	VGG16	CNN comparison	28.4%
+
+The best result was obtained with the ResNet50 baseline model.
+
+Technologies Used
+
+Python
+
+PyTorch
+
+Torchvision
+
+NumPy
+
+OpenCV
